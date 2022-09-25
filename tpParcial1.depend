@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1663870711 source:c:\users\torales\desktop\src\lab-prog-2\parcial1\tpparcial1\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"funcionesGlobales.h"
+	"ClassFecha.h"
+	"ClassCancion.h"
+	"ClassInterprete.h"
+	"funcionesClassCancion.h"
+	"funcionesClassInterprete.h"
+
+1663878469 c:\users\torales\desktop\src\lab-prog-2\parcial1\tpparcial1\funcionesclasscancion.h
+
+1663875169 c:\users\torales\desktop\src\lab-prog-2\parcial1\tpparcial1\funcionesclassinterprete.h
+
+1661911791 c:\users\torales\desktop\src\lab-prog-2\parcial1\tpparcial1\funcionesglobales.h
+
+1663877061 c:\users\torales\desktop\src\lab-prog-2\parcial1\tpparcial1\classfecha.h
+
+1663878399 c:\users\torales\desktop\src\lab-prog-2\parcial1\tpparcial1\classcancion.h
+
+1663871540 c:\users\torales\desktop\src\lab-prog-2\parcial1\tpparcial1\classinterprete.h
+
