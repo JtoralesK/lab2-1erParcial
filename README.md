@@ -1,6 +1,5 @@
 # lab2-1erParcial
 Proyecto para el primer parcial de laboratorio 2.
-Realizado en grupo.
 Es Un programa que gestiona 3(tres) tipo de archivos (Canciones, interpretes y generos).
 Mediante clases y objetos se generan registros los cuales se insertan en estos archivos.Tambien permite modificarlos y borrarlos(baja logica).
 
