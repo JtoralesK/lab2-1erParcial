@@ -2,7 +2,7 @@
 #define CLASSFECHA_H_INCLUDED
 
 class Fecha{
-private:
+protected:
     int dia,mes,anio;
 public:
     Fecha(int d=1,int m=1, int a=2022){

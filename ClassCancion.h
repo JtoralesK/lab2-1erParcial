@@ -12,13 +12,13 @@ private:
     int genero;
     bool estado;
 public:
-    void cargar(int id);
-    void mostrar();
+    void cargar(int id,int idInte,int gene);
+    void mostrar(bool idInter,bool genero);
     ///funciones de archivo
     int leerDeDisco(int p);
     bool grabarEnDisco();
     bool modificarEndisco();
-    int resetearArchivo();
+    void resetearArchivo();
     ///setteeeeeeeeeeeeeeeeeers
     bool setIdCancion(int id){
         if(id>0){
@@ -64,14 +64,25 @@ public:
      int getIdInterprete(){return idInterprete;}
      float getDuracion(){return duracion;}
      int getGenero(){return genero;}
-     bool getEstado(bool e){return estado;}
-     Fecha getFecha (){}
+     bool getEstado(){return estado;}
+     Fecha getFechaDeEstreno(){return fechaDeEstreno;}
+
 };
 ///funcion cargar
-void Cancion::cargar(int id=0){
+void Cancion::cargar(int id=0,int idInter=0, int gene=0){
     if(id!=0){
      idCancion=id;
     }
+     if(idInter!=0){
+     idInterprete=idInter;
+    }
+    if(gene==0){
+     cout<<"INGRESA GENERO(1-10):";cin>>genero;
+     while(!(setGenero(genero))){
+     cout<<"EL GENERO ES ENTRE EL 1 Y 10"<<endl;
+     cout<<"INGRESA GENERO(1-10):";cin>>genero;
+     }
+    }else genero=gene;
      cout<<"INGRESA EL NOMBRE DE LA CANCION:";cargarCadena(nombre,29);
      cout<<"INGRESA EL AUTOR DE LA CANCION:";cargarCadena(autor,29);
      cout<<"INGRESA DURACION DE LA CANCION:";cin>>duracion;
@@ -79,25 +90,21 @@ void Cancion::cargar(int id=0){
      cout<<"LA DURACION ES POSITIVA"<<endl;
      cout<<"INGRESA DURACION DE LA CANCION:";cin>>duracion;
      }
-     cout<<"INGRESA GENERO(1-10):";cin>>genero;
-     while(!(setGenero(genero))){
-     cout<<"EL GENERO ES ENTRE EL 1 Y 10"<<endl;
-     cout<<"INGRESA GENERO:";cin>>genero;
-     }
+
      cout<<"INGRESA FECHA DE ESTRENO:"<<endl;fechaDeEstreno.cargar();
      estado=true;
+     genero=gene;
 }
 ///funcion mostrar
-void Cancion::mostrar(){
+void Cancion::mostrar(bool idInter=false,bool gene=false){
     if(estado==true){
      cout<<"ID DE LA CANCION:"<<idCancion<<endl;
      cout<<"NOMBRE DE LA CANCION:"<<nombre<<endl;
      cout<<"NOMBRE DEL AUTOR:"<<autor<<endl;
      cout<<"DURACION:"<<duracion<<endl;
-     cout<<"GENERO:"<<genero<<endl;
+     if(!gene)cout<<"GENERO:"<<genero<<endl;
      cout<<"FECHA DE ESTRENO:";fechaDeEstreno.mostar();
-
-    cout<<"Estado:"<<estado<<endl;
+    if(!idInter)cout<<"ID DE INTERPRETE:"<<idInterprete<<endl;
     }
 }
 bool Cancion::grabarEnDisco(){
@@ -129,13 +136,11 @@ bool Cancion::grabarEnDisco(){
     return leyo;
 }
 
-int  Cancion::resetearArchivo(){
+void  Cancion::resetearArchivo(){
 FILE *p;
     p=fopen(archivoCancion,"wb");
     if(p==NULL){
         cout<<"no se encuentra"<<endl;
-        system("pause");
-        return 0;
     }
     fclose(p);
 
